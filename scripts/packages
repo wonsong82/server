@@ -3,6 +3,7 @@ version='xenial'
 
 # available packages by folder
 packages=(
+  'built-ins'
   'git'
   'lamp'
   'node'
