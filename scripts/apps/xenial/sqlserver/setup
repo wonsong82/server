@@ -1,0 +1,3 @@
+#! /bin/bash
+print_title "Microsoft SQL Server: Configuration"
+print_end "nothing to setup.."

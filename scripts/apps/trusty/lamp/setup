@@ -1,0 +1,101 @@
+#! /bin/bash
+. "$root/config/lamp/conf"
+print_title "Apache 2.4, PHP 7.0, MySQL 5.7: Setup"
+
+
+
+# Copy configs
+print_start "copying apache configs.."
+sudo rm -rf /etc/apache2/sites-available/*
+sudo rm -rf /etc/apache2/sites-enabled/*
+sudo cp -f $root/config/lamp/sites/* /etc/apache2/sites-available
+sudo ln -s /etc/apache2/sites-available/* /etc/apache2/sites-enabled/
+sudo cp -f $root/apps/$version/lamp/inc/apache/conf-available/* /etc/apache2/conf-available
+sudo cp -f $root/apps/$version/lamp/inc/apache/mods-available/* /etc/apache2/mods-available
+sudo cp -f $root/apps/$version/lamp/inc/apache/apache2.conf /etc/apache2
+sudo cp -f $root/apps/$version/lamp/inc/apache/ports.conf /etc/apache2
+
+print_start "copying php configs.."
+sudo cp -f $root/apps/$version/lamp/inc/php/php.ini /etc/php/7.0/fpm
+sudo cp -f $root/apps/$version/lamp/inc/php/php.ini /etc/php/7.0/apache2
+sudo cp -f $root/apps/$version/lamp/inc/php/php.ini /etc/php/7.0/cgi
+sudo cp -f $root/apps/$version/lamp/inc/php/php.ini /etc/php/7.0/cli
+
+print_start "copying mysql configs.."
+sudo cp -f $root/apps/$version/lamp/inc/mysql/my.cnf /etc/mysql
+
+
+
+# Enabling modules
+print_start "enabling modules.."
+sudo a2enmod headers
+sudo a2enmod proxy_fcgi
+sudo a2enmod rewrite
+sudo a2enmod ssl
+sudo a2enmod php7.0
+#sudo a2dismod php5.6
+
+
+# Start to use mysql without password temporarily
+start_mysql
+
+
+# Create databases
+for database in ${databases[@]};do
+
+print_start "creating database '$database' if not exist.."
+sudo mysql << EOF
+CREATE DATABASE IF NOT EXISTS $database
+CHARACTER SET utf8
+COLLATE utf8_general_ci;
+EOF
+
+sudo mysql << EOF
+SHOW CREATE DATABASE $database;
+EOF
+
+done
+
+
+# Create users
+for db_user in ${db_users[@]};do
+
+unset user
+unset user_name
+unset user_pass
+unset user_privileges
+user=(${db_user//,/ })
+user_name=${user[0]}
+user_pass=${user[1]}
+
+print_start "Creating user '$user_name' with full privileges if not exists"
+sudo mysql << EOF
+CREATE USER IF NOT EXISTS '$user_name'@'%' IDENTIFIED BY '$user_pass';
+GRANT ALL PRIVILEGES ON *.* TO '$user_name'@'%';
+FLUSH PRIVILEGES
+EOF
+
+done
+
+# End temp mysql session
+end_mysql
+
+
+
+
+
+print_start "showing enabled modules.."
+sudo apache2ctl -M
+
+# Restart
+print_start "restarting.."
+sudo service apache2 restart
+sudo service apache2 status
+sudo service php7.0-fpm restart
+sudo service php7.0-fpm status
+sudo service mysql restart
+sudo service mysql status
+
+
+print_end "setup finished"
+

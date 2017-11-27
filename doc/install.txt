@@ -1,0 +1,57 @@
+1. add user
+adduser name
+usermod -a -G www-data user
+usermod -a -G user www-data
+usermod -a -G sudo user
+
+2. enable ssh password
+/etc/ssh/sshd_config
+#PasswordAuthentication yes
+service ssh restart
+
+3. exit and login with the new user
+
+4. set up folders
+mkdir /projects
+chown -R {user} /projects
+chgrp -R {user} /projects
+chmod -R 774 /projects
+chmod -R g+s /projects
+
+mkdir /var/www
+and do the same
+
+copy project files as nessassary
+
+
+5. Server setup
+git clone https://wonsong82@bitbucket.org/wonsong82/server.git
+ln -s /server/scripts /scripts
+
+
+6. Cron
+sudo su; crontab -e
+*/5 * * * * /usr/bin/bash /scripts/crons/maintain_service
+
+exit; crontab -e
+0 1 * * * /usr/bin/php /scripts/crons/backup.php
+
+
+
+
+
+
+
+:permission
+chgrp -R www-data /var/www
+chown -R name:www-data /var/www
+chmod -R 774 /var/www
+chmod -R g+s /var/www // set gid so files created within this dir will havesame group
+
+
+
+
+AllowUsers user1@192.168.*.*
+
+:list group
+cat /etc/group

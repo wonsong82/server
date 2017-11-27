@@ -1,0 +1,47 @@
+#! /bin/bash
+
+
+# Database Configuration
+# mysql root account can only be access within host itself
+db_root_pass='root'
+
+# Set databases:
+# databases=(
+#   'database_name1'
+#   'database_name2'
+# )
+databases=(
+  'general'
+  'threeon_wpdb'
+  'diagonmall'	
+  'simziecandle'
+  'smaministry'
+  'smaministry_openheart'
+  'vatech_old'
+	'vatech'
+	'vatech_lms'
+	'singsing_book'
+	'nanum'
+	'wordpress'
+	'ipmax'
+	'quickadmin'
+	'voyager'
+	'backpack'
+	'vatech_v2'
+	'laravelapp'
+	'mybm_table'
+	'mybm'
+	'cve'
+)
+
+# Set database users, these users gets all privileges
+# databases=(
+#   'database_user1_name,database_user1_password',
+#   'database_user2_name,database_user2_password'
+# )
+db_users=(
+  'admin,777'
+  'threeon_wp,1gobaesong'
+  'simziecandle,Simzie2017'
+  'smaministry,Sma1234!'
+)

@@ -1,0 +1,33 @@
+#! /bin/bash
+# from "https://docs.microsoft.com/en-us/sql/linux/quickstart-install-connect-ubuntu"
+# if you hvae older version, you must remove the old repository
+
+print_title "Microsoft SQL Server: Installation"
+
+print_start "getting repositories.."
+curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
+
+sudo add-apt-repository "$(curl https://packages.microsoft.com/config/ubuntu/16.04/mssql-server-2017.list)"
+sudo add-apt-repository "$(curl https://packages.microsoft.com/config/ubuntu/16.04/prod.list)"
+
+sudo apt update -y -qq
+
+print_start "installing.."
+sudo apt install mssql-server mssql-tools unixodbc freetds-common freetds-bin -y
+
+echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bashrc
+source ~/.bashrc
+
+print_start "cleaning up.."
+sudo apt autoremove -y -qq
+print_end "install finished.."
+
+# Setup
+# sudo /opt/mssql/bin/mssql-conf setup
+
+# For unattended
+# sudo MSSQL_PID=Developer ACCEPT_EULA=Y MSSQL_SA_PASSWORD='Password1!' /opt/mssql/bin/mssql-conf -n setup
+
+# sqlcmd -S (Server) -U SA -P Password
+# Port is 1433
+

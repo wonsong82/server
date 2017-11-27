@@ -1,0 +1,10 @@
+#! /bin/bash
+version='xenial'
+
+# available packages by folder
+packages=(
+  'git'
+  'lamp'
+  'node'
+  'composer'
+)

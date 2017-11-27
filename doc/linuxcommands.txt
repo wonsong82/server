@@ -1,0 +1,54 @@
+﻿:version check
+lsb_release -a
+
+:create user
+adduser name
+
+:add user to group
+usermod -a -G www-data user
+usermod -a -G sudo user
+
+:permission
+chgrp -R www-data /var/www
+chown -R name:www-data /var/www
+chmod -R 774 /var/www
+chmod -R g+s /var/www // set gid so files created within this dir will havesame group
+
+:list group
+cat /etc/group
+
+:enable ssh password
+/etc/ssh/sshd_config
+#PasswordAuthentication yes
+service ssh restart
+AllowUsers user1@192.168.*.*
+
+// APACHE
+:check modules
+apache2ctl -M
+
+:start mod
+a2enmod, a2dismod
+
+
+
+cron
+crontab -e
+/usr/bin/php /script
+service cron restart
+
+
+
+
+: apt (replace apt-get apt-cache etc)
+
+http://manpages.ubuntu.com/manpages/xenial/en/man8/apt.8.html
+
+list: which is similar to dpkg list and can be used with flags like --installed or --upgradable.
+search: works just like apt-cache search but sorted alphabetically.
+show: works like apt-cache show but hide some details that people are less likely to care about (like the hashes). The full record is still available via apt-cache show of course.
+update: just like the regular apt-get update with color output enabled.
+install,remove: adds progress output during the dpkg run.
+upgrade: the same as apt-get dist-upgrade –with-new-pkgs.
+full-upgrade: a more meaningful name for dist-upgrade.
+edit-sources: edit sources.list using $EDITOR.

@@ -1,0 +1,11 @@
+#! /bin/bash
+# from "https://getcomposer.org/installer"
+
+print_title "Composer: Installation"
+
+print_start "installing.."
+sudo curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer
+
+print_end "install finished.."
+
+

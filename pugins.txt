@@ -1,0 +1,5 @@
+vagrant-bindfs
+vagrant-share
+vagrant-winnfsd
+
+if using windows, run winnfsd.exe as administrator

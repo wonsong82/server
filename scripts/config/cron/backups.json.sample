@@ -1,0 +1,7 @@
+[
+  {
+    "backup":"/projects/Threeon_SI/Hackensackacu/web/backups",
+    "dir":"/var/www/hackensackacu/www",
+    "db":"hackensackacu"
+  }
+]

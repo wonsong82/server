@@ -1,0 +1,22 @@
+Usage: localhost [command] {Options}
+
+
+    no command  Toggle enable / disable
+
+          list  Show the list of the sites defined in hosts file
+
+        enable  Enable local hosts
+
+       disable  Disable local hosts
+
+        status  Show the status whether the local env is enabled / disabled
+
+           add  Add to hosts file
+                --domain, -d  Domain of the host, required
+                    --ip, -i  Local ip of the entry, omitting defaults to 127.0.0.1
+
+        remove  Remove from hosts file
+                --domain, -d  Domain of the host, required
+
+     --help, h  Show this message
+

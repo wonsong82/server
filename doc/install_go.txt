@@ -1,0 +1,18 @@
+cd /usr/local
+wget https://redirector.gvt1.com/edgedl/go/go1.9.2.linux-amd64.tar.gz
+tar -czvf 
+
+vim ~/.profile
+export PATH=$PATH:/usr/local/go/bin
+export GOPATH=/projects/go
+source ~/.profile
+
+
+
+IDE Setup
+install go locally
+setup PATH & GOPATH
+install go plugin for phpstorm
+
+
+

@@ -1,0 +1,18 @@
+#! /bin/bash
+. ".script.sh"
+
+# remove all available packages
+# remove
+if [ -z $1 ]; then
+  for package in ${packages[@]};do	
+	require "$root/apps/$version/$package/remove"
+  done
+  
+  
+# remove specific package(s)
+# remove $package_name1 $package_name2 ..
+else   
+  for package in $@;do
+    require "$root/apps/$version/$package/remove"
+  done  
+fi

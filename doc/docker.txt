@@ -1,0 +1,14 @@
+install docker toolbox to utilize virtualbox and terminal we use already
+
+bash docker
+
+
+
+# start
+docker run -p 8080:8080 xxx/xxxx
+
+# delete all docker container
+docker rm $(docker ps -a -q)
+
+# delete all docker images
+docker rmi $(docker images -q)

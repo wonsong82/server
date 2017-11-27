@@ -1,0 +1,9 @@
+#! /bin/bash
+cp vagrant/config.json.sample vagrant/config.json
+cp scripts/packages.sample scripts/packages
+
+
+echo "-----------------------------------------------------"
+echo "message: please configure vagrant/config.json and scripts/packages" 
+echo "-----------------------------------------------------"
+

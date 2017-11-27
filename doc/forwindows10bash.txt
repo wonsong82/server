@@ -1,0 +1,45 @@
+:Uninstall
+lxrun /uninstall
+lxrun /uninstall /full <- deletes home folder too
+
+:Reinstall
+lxrun /install
+
+
+1. Change Color
+vim ~/.bashrc
+alias codolor='LS_COLORS="ow=01;36;40" && export LS_COLORS'
+
+2. Add your system to host file
+cat /etc/hostname
+sudo vim /etc/hosts
+add 127.0.1.1 <hostname> after localhost
+
+3. Fix upstart
+sudo cat > /usr/sbin/policy-rc.d <<EOF
+#!/bin/sh
+exit 101
+EOF
+sudo chmod +x /usr/sbin/policy-rc.d
+sudo dpkg-divert --local --rename --add /sbin/initctl
+sudo ln -s /bin/true /sbin/initctl
+
+
+4. link scripts
+5. Run scripts
+
+
+
+
+/etc/apach2/apache2.conf
+Servername localhost
+AcceptFilter http none
+
+
+upstart
+
+
+
+
+Ring sound disable
+Uncommenting set bell-style none in /etc/inputrc and creating a .bash_profile with setterm -blength 0 didn't stop vim from beeping.c

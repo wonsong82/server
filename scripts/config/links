@@ -1,0 +1,19 @@
+#! /bin/bash
+
+# soft links
+links=(
+  '/projects/local;/var/www/local'
+  '/projects/MyBM/web/local;/var/www/mybm'
+  '/projects/Sing_Sing_Media/KMS/web/local;/var/www/ssm'
+  '/projects/Sing_Sing_Media/web;/var/www/sing'
+  '/projects/Threeon/Corporate/web/local;/var/www/threeon'
+  '/projects/Threeon/Diagonmall/web/local;/var/www/diagonmall'
+  '/projects/Threeon_SI/CVE/web/local;/var/www/cve'
+  '/projects/Threeon_SI/IPMax/web/local;/var/www/ipmax'
+  '/projects/Threeon_SI/Nanum/web/local;/var/www/nanum'
+  '/projects/Threeon_SI/Vatech/web/local;/var/www/vatech'
+  '/projects/Threeon_SI/Hackensackacu/web/local;/var/www/hackensackacu'
+  '/projects/Threeon_SI/Purun/web/local;/var/www/purun'
+  '/projects/SMA_Ministry/SI/nykyc/web/local;/var/www/nykyc'
+  '/projects/SMA_Ministry/SI/bobahaus/web/local;/var/www/bobahaus'
+)

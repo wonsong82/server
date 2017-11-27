@@ -1,0 +1,5 @@
+#! /bin/bash
+print_title "Node6.x & npm: Uninstall"
+sudo apt-get remove --purge nodejs -y
+sudo apt-get remove --purge build-essential -y
+print_end "nothing to setup.."

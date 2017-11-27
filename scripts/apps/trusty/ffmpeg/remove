@@ -1,0 +1,5 @@
+#! /bin/bash
+print_title "FFMPEG: Uninstall"
+sudo apt-get remove --purge ffmpeg -y
+
+print_end "ffmpeg removed.."

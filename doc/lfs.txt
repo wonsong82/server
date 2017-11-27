@@ -1,0 +1,19 @@
+1. make a new repo & push
+2. make a qa branch
+3. download from server
+4. composer install from server
+
+
+
+
+
+
+
+git config --global credential.helper 'cache --timeout=3600'
+git lfs clone
+
+
+git fetch
+git checkout {branch}
+git checkout -b {branch} origin/{branch}
+

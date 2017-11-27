@@ -1,0 +1,27 @@
+transfer: postfix, exim, sendmail
+delivery: postfix, dovecot
+imap&pop3: courier, dovecot, zimbra
+spamfilter: smapassassin
+antivirus: clamav
+webmail: roundcube, citadel
+
+blacklists: dnsbl, blocklists, blackhole lists(lookup and remove)
+
+
+https://www.digitalocean.com/community/tutorials/why-you-may-not-want-to-run-your-own-mail-server
+
+
+gandi.net (free email)
+
+
+
+mailinabox : complete set
+
+scratch tutorial
+https://workaround.org/ispmail/jessie 
+
+
+. In order to get Gmail to accept your email without it going to spam, you need SPF/DKIM and a SSL cert. Let's Encrypt works, and is a cinch to set up.
+
+RoundCube Mobile Skin
+https://github.com/messagerie-melanie2/Roundcube-Skin-Melanie2-Larry-Mobile

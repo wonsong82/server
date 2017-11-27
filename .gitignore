@@ -1,0 +1,4 @@
+.vagrant
+.idea
+scripts/config/lamp/sites/*.conf
+scripts/config/cron/backups.json

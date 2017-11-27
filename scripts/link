@@ -1,0 +1,24 @@
+#! /bin/bash
+. ".script.sh"
+. "$root/config/links"
+
+
+# Links
+for link in ${links[@]};do
+
+unset arr
+unset src
+unset dst
+
+arr=(${link//;/ })
+src=${arr[0]}
+dst=${arr[1]}
+
+if [ ! -d "$dst" ]; then
+print_start "Linking '$src' to '$dst'"
+sudo ln -s $src $dst
+fi
+
+
+done
+  

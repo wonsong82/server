@@ -1,0 +1,17 @@
+#! /bin/bash
+# This updates installed repositories and upgrade them all
+
+print_title "Build-in Packages: Installation"
+
+print_start "installing python-software-properties.."
+sudo apt-get install python-software-properties
+
+print_start "getting updated packages list.."
+sudo apt-get update -y 
+
+print_start "upgrading installed packages.."
+sudo apt-get upgrade -y
+
+print_start "cleaning up.."
+sudo apt-get --purge autoremove -y -qq
+print_end "install finished.."

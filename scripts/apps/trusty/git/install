@@ -1,0 +1,19 @@
+#! /bin/bash
+# Git from "https://launchpad.net/~git-core/+archive/ubuntu/ppa"
+
+print_title "Git: Installation"
+
+print_start "getting git repositories.."
+sudo add-apt-repository ppa:git-core/ppa -y
+sudo apt-get update -y -qq
+sudo curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
+
+print_start "installing.."
+sudo apt-get install git -y
+sudo apt-get install git-lfs -y
+
+print_start "cleaning up.."
+sudo apt-get --purge autoremove -y -qq
+print_end "install finished.."
+
+

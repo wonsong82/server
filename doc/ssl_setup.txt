@@ -1,0 +1,35 @@
+SSL:
+
+login ssh
+/etc/ssl
+mkdir sitename
+
+openssl req -new -newkey rsa:2048 -nodes -keyout yourdoman.key -out yourdomain.csr
+
+
+
+
+안녕하세요. 제가 전달받기로는 SSL 셋업하는 법을 도와드릴것으로 알고있습니다.
+
+먼저 이미 Certificate 키를 생성했는지 궁금합니다. SSL 을 등록하기위해 crt 파일과 key 파일 그리고 ca-bundle 파일이 필요한데 eggbon으로 SSL 등록하면 받는 저 3개의 파일이 있는지 보시고요. 아직 cert 를 받지 않으셨다면 SSL 등록하는 회사에가서 ssls.com 에서 한 도메인이면 8불에 구매하실수있습니다.
+
+먼저 key 파일과 csr 파일을 만드세요.
+터미널에서 
+openssl req -new -newkey rsa:2048 -nodes -keyout yourdoman.key -out yourdomain.csr
+
+그럼 ssls 에서 SSL 을 구입하시고 도메인을 등록하시는 과정에 csr 을 넣으라 합니다. csr 내용을 카피해서 넣으신후 도메인 오너쉽 verify 하시면 key 를 생성 받으실수 있으실겁니다.
+
+그럼 aws 든 서버 hosting 에 해당 site config 에 가서 ssl 을 등록하시면 됩니다. 
+예제로 apache 라면
+
+/etc/apache2/sites-enabled/SITE.conf 에
+
+<VirtualHost *:80> 외에 
+<VirtualHost *:443> 으로 하나 더 만드시고
+
+SSLEngine on
+SSLCertificateFile /etc/ssl/domain/domain.crt
+SSLCertificateKeyFile /etc/ssl/domain/domain.key
+SSLCertificateChainFile /etc/ssl/domain/domain.ca-bundle
+
+이렇게 하시면 됩니다.

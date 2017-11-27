@@ -1,0 +1,21 @@
+1. Create CSR
+
+/etc/ssl/{domain}
+
+openssl req -new -newkey rsa:2048 -nodes -keyout yourdoman.key -out yourdomain.csr
+
+
+2. Get SSL Cert
+
+3. Copy certs 
+
+
+4. Edit site.conf
+
+Redirect permanent / https://vatechamerica.com/
+
+SSLEngine on
+SSLCertificateFile /etc/ssl/3on.io/3on.io.crt
+SSLCertificateKeyFile /etc/ssl/3on.io/3on.io.key
+SSLCertificateChainFile /etc/ssl/3on.io/3on.io.ca-bundle
+

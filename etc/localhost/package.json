@@ -1,0 +1,21 @@
+{
+  "name": "localhost",
+  "version": "1.0.0",
+  "description": "Windows local machine hosts file controller",
+  "main": "./lib/index.js",
+  "bin": {
+    "localhost": "bin/localhost.js"
+  },
+  "author": "Won Song",
+  "license": "ISC",
+  "devDependencies": {
+    "fs": "0.0.2",
+    "line-reader-sync": "^0.1.0",
+    "yargs": "^4.7.0"
+  },
+  "dependencies": {
+    "yargs": "^4.7.0",
+    "fs": "0.0.2",
+    "line-reader-sync": "^0.1.0"
+  }
+}

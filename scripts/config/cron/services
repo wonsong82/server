@@ -1,0 +1,6 @@
+#! /bin/bash
+
+services=(
+  'apache2'
+  'mysql'
+)
