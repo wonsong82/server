@@ -9,7 +9,10 @@ db_root_pass='root'
 #   'database_name1'
 #   'database_name2'
 # )
-databases=(  
+databases=(
+  'bm_table'
+  'bm_table_1'
+  'trece'
 )
 
 # Set database users, these users gets all privileges
@@ -18,5 +21,6 @@ databases=(
 #   'database_user2_name,database_user2_password'
 # )
 db_users=(
+  'kmstech,Kmsinc123!'
   'admin,777'
 )
