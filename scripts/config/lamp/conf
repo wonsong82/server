@@ -12,6 +12,9 @@ db_root_pass='root'
 databases=(
   'bm_table'
   'bm_table_1'
+  'sincgo'
+  'effypiao'
+  'autocoin'
   'trece'
 )
 
@@ -23,4 +26,5 @@ databases=(
 db_users=(
   'kmstech,Kmsinc123!'
   'admin,777'
+  'wonsong82,Dnjscjf0310'
 )

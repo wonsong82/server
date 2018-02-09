@@ -16,12 +16,18 @@ sudo cp -f $root/apps/$version/lamp/inc/apache/apache2.conf /etc/apache2
 sudo cp -f $root/apps/$version/lamp/inc/apache/ports.conf /etc/apache2
 
 print_start "copying php configs.."
+sudo cp -f $root/apps/$version/lamp/inc/php/7.2/php.ini /etc/php/7.2/fpm
+sudo cp -f $root/apps/$version/lamp/inc/php/7.2/php.ini /etc/php/7.2/apache2
+sudo cp -f $root/apps/$version/lamp/inc/php/7.2/php.ini /etc/php/7.2/cgi
+sudo cp -f $root/apps/$version/lamp/inc/php/7.2/php.ini /etc/php/7.2/cli
+
 sudo cp -f $root/apps/$version/lamp/inc/php/7.0/php.ini /etc/php/7.0/fpm
 sudo cp -f $root/apps/$version/lamp/inc/php/7.0/php.ini /etc/php/7.0/apache2
 sudo cp -f $root/apps/$version/lamp/inc/php/7.0/php.ini /etc/php/7.0/cgi
 sudo cp -f $root/apps/$version/lamp/inc/php/7.0/php.ini /etc/php/7.0/cli
 
 sudo cp -f $root/apps/$version/lamp/inc/php/5.6/php.ini /etc/php/5.6/apache2
+sudo cp -f $root/apps/$version/lamp/inc/php/5.6/php.ini /etc/php/5.6/cli
 
 
 print_start "copying mysql configs.."
@@ -36,7 +42,8 @@ sudo a2enmod proxy_fcgi
 sudo a2enmod rewrite
 sudo a2enmod ssl
 sudo a2dismod php5.6
-sudo a2enmod php7.0
+sudo a2dismod php7.0
+sudo a2enmod php7.2
 
 
 
