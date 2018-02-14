@@ -22,7 +22,7 @@ foreach($backups as $project){
 
     // Create DIR
     if(!is_dir($backupDir)){
-        system('mkdir ' . $backupDir);
+        system('mkdir -p ' . $backupDir);
     }
 
     // Backup DB

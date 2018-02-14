@@ -16,4 +16,6 @@ links=(
   '/projects/Threeon_SI/Purun/web/local;/var/www/purun'
   '/projects/SMA_Ministry/SI/nykyc/web/local;/var/www/nykyc'
   '/projects/SMA_Ministry/SI/bobahaus/web/local;/var/www/bobahaus'
+  '/projects/Won/Bitcoin/web/local;/var/www/bitcoin'
+  '/projects/Threeon_SI/BeanAndBean/web/local;/var/www/beannbean'  
 )

@@ -1,5 +1,4 @@
 #! /bin/bash
-# from "https://docs.microsoft.com/en-us/sql/linux/quickstart-install-connect-ubuntu"
 # if you hvae older version, you must remove the old repository
 
 print_title "Microsoft SQL Server: Installation"
@@ -31,3 +30,6 @@ print_end "install finished.."
 # sqlcmd -S (Server) -U SA -P Password
 # Port is 1433
 
+# set /etc/freetds/freetds.conf
+# tds version = 7.1
+# client charset = UTF-8
