@@ -26,18 +26,12 @@ foreach($backups as $project){
     }
 
     // Backup DB
-    system('mysqldump ' . $project->db . ' > ' . $backupDir . '/db.sql' );
-
+	if($project->db){
+		system('mysqldump ' . $project->db . ' > ' . $backupDir . '/db.sql' );
+	}
 
     // Backup Files
     system('cd ' . $project->dir . ';' . 'tar -czf backup.tar.gz ./;mv backup.tar.gz ' . $backupDir . '/backup.tar.gz' );
-
-
-    /*for($i=0; $i<1000; $i++){
-        mkdir($project->backup . '/' . date('Ymd', strtotime('-'.$i.' days')));
-    }*/
-
-
 
 
     foreach(glob($project->backup . '/*') as $dir){

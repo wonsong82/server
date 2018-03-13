@@ -4,7 +4,8 @@
 print_title "Node6.x & npm: Installation"
 
 print_start "getting repositories.."
-sudo curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
+#sudo curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
+sudo curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
 sudo apt update -y -qq
 
 print_start "installing.."
@@ -15,4 +16,9 @@ print_start "cleaning up.."
 sudo apt autoremove -y -qq
 print_end "install finished.."
 
+
+# to update
+# sudo curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
+# sudo apt install nodejs
+# sudo npm instlal -g npm
 

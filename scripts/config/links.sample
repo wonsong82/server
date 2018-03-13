@@ -1,0 +1,7 @@
+#! /bin/bash
+
+# soft links
+links=(
+  '/projects/path1;/var/www/path1'
+  '/projects/path2;/var/www/path2'  
+)
