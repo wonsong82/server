@@ -1,3 +1,10 @@
+0. mount if any
+lsblk (to find mountable volumes)
+mkdir {path}
+mount /dev/{device_name} {path}
+umount if any
+
+
 1. add user
 adduser name
 usermod -a -G www-data user
