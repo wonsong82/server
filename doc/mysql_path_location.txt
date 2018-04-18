@@ -1,0 +1,11 @@
+copy with permissions intact:
+rsync -avzh /var/lib/mysql /path/to/new/place
+
+back up (in case something goes wrong):
+mv /var/lib/mysql /var/lib/_mysql
+
+create a new empty directory in place of old:
+mkdir /var/lib/mysql
+
+bind mount the new location to the old:
+mount -B /path/to/new/place /var/lib/mysql
