@@ -34,6 +34,8 @@ copy project files as nessassary
 5. Server setup
 git clone https://wonsong82@bitbucket.org/wonsong82/server.git
 ln -s /server/scripts /scripts
+make sure you aren't in sudo
+
 
 
 6. Cron

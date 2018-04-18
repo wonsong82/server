@@ -1,0 +1,16 @@
+:mount and unmount
+
+lsblk (to find mountable volumes)
+mkdir {path}
+mount /dev/{device_name} {path}
+umount if any
+
+
+
+:resize volume
+
+lsblk  #get deviceid partitionid
+$ df -h #confirm /dev/deviceid
+$ sudo growpart /dev/deviceid partid
+$ lsblk
+$ sudo resize2fs /dev/xvdf1

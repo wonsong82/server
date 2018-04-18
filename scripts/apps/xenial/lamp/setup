@@ -108,7 +108,9 @@ sudo apache2ctl -M
 print_start "restarting.."
 sudo service apache2 restart
 #sudo service apache2 status
+sudo service php5.6-fpm restart
 sudo service php7.0-fpm restart
+sudo service php7.2-fpm restart
 #sudo service php7.0-fpm status
 sudo service mysql restart
 #sudo service mysql status
