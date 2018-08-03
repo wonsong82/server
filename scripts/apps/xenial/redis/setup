@@ -1,0 +1,3 @@
+#! /bin/bash
+print_title "REDIS: Configuration"
+print_end "nothing to setup.."

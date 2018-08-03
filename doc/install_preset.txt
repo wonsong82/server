@@ -1,0 +1,20 @@
+create instance with data volume & elastic ip
+log in with ssh
+sudo su
+
+
+0. add user
+adduser $name
+usermod -a -G www-data $name
+usermod -a -G sudo $name
+usermod -a -G $name www-data
+
+
+1. enable ssh password
+vim /etc/ssh/sshd_config
+PasswordAuthentication yes
+service ssh restart
+reboot the system
+log back in with the new user id
+
+

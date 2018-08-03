@@ -1,9 +1,8 @@
-0. mount if any
-lsblk (to find mountable volumes)
-mkdir {path}
-mount /dev/{device_name} {path}
-umount if any
+make instance
+set elestic ip
+set new volume for data
 
+ssh with key 
 
 1. add user
 adduser name
@@ -17,28 +16,86 @@ usermod -a -G sudo user
 service ssh restart
 
 3. exit and login with the new user
+sudo su
 
-4. set up folders
-mkdir /projects
-chown -R {user} /projects
-chgrp -R {user} /projects
-chmod -R 774 /projects
-chmod -R g+s /projects
 
-mkdir /var/www
-and do the same
+4. create volume (skip to 5 if already)
+// initialize and mount
+lsblk (to find mountable volumes)
+format: mkfs -t ext4 device_name
 
+
+5. mount
+mkdir /data
+
+(if you are relly mounting)
+chmod won:won /data
+mount /dev/xvdf /data
+
+
+6. let mount stay
+blkid and get uuid
+vim /etc/fstab
+UUID=$uuid	/data	ext4	defaults,nofail		0 2
+mount -a to check if mount works (important)
+reboot
+
+7. setup folders (skip if already)
+chown -R won /data
+chgrp -R won /data
+chmod -R 774 /data
+chmod -R g+s /data
 copy project files as nessassary
 
 
-5. Server setup
+8. set links
+ln -s /data/server/scripts /scripts
+ln -s /data/www /var/www
+
+
+9. Server setup
 git clone https://wonsong82@bitbucket.org/wonsong82/server.git
-ln -s /server/scripts /scripts
 make sure you aren't in sudo
+cd /scripts
+edit configs
+bash install
+
+
+10. Myql to custom location (backup, skip if already)
+sudo su
+rsync -avzh /var/lib/mysql /data
+mount -B /data/mysql /var/lib/mysql
+
+11. make mysql mount permanent
+vim /etc/fstab
+/data/mysql	/var/lib/mysql	none	bind	0	0
+
+12. set start script (if any)
+sudo su
+crontab -e
+@reboot sleep 10 && bash /var/www/start
 
 
 
-6. Cron
+
+
+
+//vim /etc/mysql/msql/mysql.conf.d/mysql.cnf
+//datadir=/data/mysql
+//
+//copy with permissions intact (skip if already)
+//rsync -av /var/lib/mysql /data
+//mv /var/lib/mysql /var/lib/mysql.bak
+
+
+
+
+
+
+// // Cron for reboot
+// @reboot sleep 60 && /home/me/bin/mount.sh
+
+Cron
 sudo su; crontab -e
 */5 * * * * /usr/bin/bash /scripts/crons/maintain_service
 
@@ -64,3 +121,13 @@ AllowUsers user1@192.168.*.*
 
 :list group
 cat /etc/group
+
+
+
+
+MAIL_DRIVER=mailgun
+MAIL_HOST=smtp.mailgun.org
+MAILGUN_DOMAIN=mg.threeon.io
+MAILGUN_SECRET=key-82c1f98a67148466e05fd1b2a5b9e026
+MAIL_FROM_ADDRESS=scale@cveusa.com
+MAIL_FROM_NAME=SCALE

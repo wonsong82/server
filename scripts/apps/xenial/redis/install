@@ -1,0 +1,14 @@
+#! /bin/bash
+print_title "REDIS: Installation"
+
+print_start "getting git repositories.."
+sudo apt update -y -qq
+
+print_start "installing.."
+sudo apt install redis-server php-redis -y
+
+print_start "cleaning up.."
+sudo apt autoremove -y -qq
+print_end "install finished.."
+
+

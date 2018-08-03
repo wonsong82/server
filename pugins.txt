@@ -2,4 +2,4 @@ vagrant-bindfs
 vagrant-share
 vagrant-winnfsd
 
-if using windows, run winnfsd.exe as administrator
+if using windows, run git-bash.exe winnfsd.exe as administrator

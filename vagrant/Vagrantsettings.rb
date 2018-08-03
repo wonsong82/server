@@ -49,6 +49,7 @@ class VagrantSettings
 	  v.memory = settings["memory"]
 	  v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
       v.customize ["modifyvm", :id, "--natdnsproxy1", "on"]	  
+	  v.customize ["modifyvm", :id, "--cableconnected1", "on"]
 	end
 	
   end

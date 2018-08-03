@@ -9,3 +9,10 @@ mkdir /var/lib/mysql
 
 bind mount the new location to the old:
 mount -B /path/to/new/place /var/lib/mysql
+
+
+
+or
+
+
+https://www.digitalocean.com/community/tutorials/how-to-move-a-mysql-data-directory-to-a-new-location-on-ubuntu-16-04

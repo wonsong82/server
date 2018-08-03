@@ -1,0 +1,6 @@
+#! /bin/bash
+print_title "FFMPEG: Uninstall"
+sudo apt purge redis-server php-redis -y
+sudo apt autoremove -y -qq
+
+print_end "ffmpeg removed.."
