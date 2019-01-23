@@ -19,3 +19,9 @@ SSLCertificateFile /etc/ssl/3on.io/3on.io.crt
 SSLCertificateKeyFile /etc/ssl/3on.io/3on.io.key
 SSLCertificateChainFile /etc/ssl/3on.io/3on.io.ca-bundle
 
+
+
+
+
+SSL LOCAL
+https://ishan.co/ssl-vagrant-local

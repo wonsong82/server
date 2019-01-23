@@ -1,0 +1,32 @@
+stop mysql
+
+backup /var/lib/mysql
+
+my.cnf => innodb_force_recovery = 4
+
+configured max_allowed_packet to 1024M
+configured net_read_timeout to 7200
+configured net_write_timeout to 7200
+
+restart mysql
+
+dump databases thats not corrupted
+
+comment my.cnf
+
+remove everything in /var/lib/mysql
+
+rsync -avzh backup/mysql .
+rsync -avzh backup/performance_schema .
+
+service mysql start
+
+then import dbs
+
+
+
+
+
+
+
+
