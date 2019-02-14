@@ -10,8 +10,6 @@ db_root_pass='root'
 #   'database_name2'
 # )
 databases=(
-  'db1'
-  'db2'
 )
 
 # Set database users, these users gets all privileges
@@ -20,6 +18,5 @@ databases=(
 #   'database_user2_name,database_user2_password'
 # )
 db_users=(
-  'user1,pass1'
-  'user2,pass2'
+  'threeon,30nPass!'
 )
