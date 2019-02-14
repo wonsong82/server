@@ -1,5 +1,4 @@
 #! /bin/bash
-cp scripts/packages.sample scripts/packages
 cp config/lamp/conf.sample config/lamp/conf
-cp config/cron/backups.json.sample config/cron.backups.json
+cp config/cron/backups.json.sample config/cron/backups.json
 
