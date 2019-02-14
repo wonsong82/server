@@ -1,0 +1,138 @@
+make instance
+set elastic ip
+set new volume for data
+
+ssh with key
+sudo su
+
+// ADD USER
+adduser threeon
+usermod -a -G www-data threeon
+usermod -a -G threeon www-data
+usermod -a -G sudo threeon
+
+// ENABLE SSH PASSWD
+vim /etc/ssh/sshd_config
+#PasswordAuthentication yes
+service ssh restart
+
+// EXIT AND LOG BACK IN WITH THREEON
+sudo su
+
+// CREATE VOLUME
+lsblk (to find mountable volumes)
+format: mkfs -t ext4 dev/disk_name
+
+// MOUNT
+mkdir /data
+blkid and get uuid
+vim /etc/fstab
+UUID=$uuid	/data	ext4	defaults,nofail		0 2
+mount -a to check if mount works (important)
+reboot
+
+// FOLDER AND LINKS
+sudo su
+chown -R threeon /data
+chgrp -R threeon /data
+chmod -R 774 /data
+chmod -R g+s /data
+exit
+cd /data
+git clone https://wonsong82@bitbucket.org/wonsong82/server.git
+mkdir www
+sudo ln -s /data/server/scripts /scripts
+sudo ln -s /data/www /var/www
+
+// SERVER SETUP
+cd /scripts
+bash init
+bash install
+
+// MYSQL CUSTOM LOCATION
+sudo su
+rsync -avzh /var/lib/mysql /data
+vim /etc/fstab
+/data/mysql	/var/lib/mysql	none	bind	0	0
+mount -a to check if mount works (important)
+reboot
+
+// PROJECT SETUP
+/project/path/_logs
+/project/path/_backups
+/project/path/app
+
+// BACKUP SETUP
+vim /scripts/config/cron/backups.json
+crontab -e
+0 1 * * * php /scripts/crons/backup.php
+
+
+
+
+
+
+
+
+
+
+
+
+// OPTIONALS
+
+# Server Script
+
+- install
+you can choose to install every package defined in `packages` file by doing `bash install`
+or you can install one by one by doing `bash install package_name` defined in current version under apps
+
+- setup
+you can configure DB users and db names in `config/lamp/conf`
+you can add site config by copying sample file into the `config/lamp/sites`
+every time you change the config in lamp, please run `bash setup lamp` to apply the changes
+
+
+# set start script (if any)
+sudo su
+crontab -e
+@reboot sleep 10 && bash /var/www/start
+
+Cron
+sudo su; crontab -e
+*/5 * * * * /usr/bin/bash /scripts/crons/maintain_service
+
+exit; crontab -e
+0 1 * * * /usr/bin/php /scripts/crons/backup.php
+
+:permission
+chgrp -R www-data /var/www
+chown -R name:www-data /var/www
+chmod -R 774 /var/www
+chmod -R g+s /var/www // set gid so files created within this dir will havesame group
+
+
+AllowUsers user1@192.168.*.*
+
+:list group
+cat /etc/group
+
+
+MAIL_DRIVER=mailgun
+MAIL_HOST=smtp.mailgun.org
+MAILGUN_DOMAIN=mg.threeon.io
+MAILGUN_SECRET=key-82c1f98a67148466e05fd1b2a5b9e026
+MAIL_FROM_ADDRESS=scale@cveusa.com
+MAIL_FROM_NAME=SCALE
+
+
+
+
+
+
+
+
+
+
+
+
+
