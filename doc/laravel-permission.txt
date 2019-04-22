@@ -1,0 +1,5 @@
+sudo chgrp -R www-data storage
+sudo chgrp -R www-data bootstrap/cache
+
+sudo chmod -R ug+rwx storage
+sudo chmod -R ug+rwx bootstrap/cache

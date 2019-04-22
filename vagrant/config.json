@@ -8,7 +8,6 @@
     {"from":"../", "to":"/works/"}
   ],
   "binds":[
-      {"from":"/works/", "to":"/projects/", "user":"vagrant", "group":"www-data", "permissions":"u=rwx:g=rwx:o=rwx"},
-	  {"from":"/works/MySQL/mysql/", "to":"/var/lib/mysql/", "user":"mysql", "group":"mysql", "permissions":"u=rwx:g=rwx:o=rwx"}	  
+      {"from":"/works/", "to":"/projects/", "user":"vagrant", "group":"www-data", "permissions":"u=rwx:g=rwx:o=rwx"}	  
   ]
 }

@@ -4,4 +4,3 @@ scripts/config/links
 scripts/config/cron/backups.json
 scripts/config/lamp/conf
 scripts/config/lamp/sites/*.conf
-

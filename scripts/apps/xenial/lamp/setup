@@ -8,8 +8,23 @@ print_title "Apache 2.4, PHP 7.0, MySQL 5.7: Setup"
 print_start "copying apache configs.."
 sudo rm -rf /etc/apache2/sites-available/*
 sudo rm -rf /etc/apache2/sites-enabled/*
-sudo cp -f $root/config/lamp/sites/* /etc/apache2/sites-available
+
+cd $root/config/lamp/sites
+for i in $(ls | grep ".conf");do
+	echo "# $i" >> $root/all.conf
+	cat $i >> $root/all.conf
+	echo \ >> $root/all.conf
+	echo \ >> $root/all.conf
+	echo \ >> $root/all.conf
+done 
+cd $root
+
+sudo cp -f $root/all.conf /etc/apache2/sites-available
 sudo ln -s /etc/apache2/sites-available/* /etc/apache2/sites-enabled/
+
+
+
+
 sudo cp -f $root/apps/$version/lamp/inc/apache/conf-available/* /etc/apache2/conf-available
 sudo cp -f $root/apps/$version/lamp/inc/apache/mods-available/* /etc/apache2/mods-available
 sudo cp -f $root/apps/$version/lamp/inc/apache/apache2.conf /etc/apache2
