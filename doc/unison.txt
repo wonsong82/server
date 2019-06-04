@@ -1,0 +1,39 @@
+Guest and Host must have same version of unison
+
+download link: https://github.com/bcpierce00/unison/releases
+
+
+WINDOWS:
+# download <version> unison-widows.zip
+# unzip
+# move them to c:\unison
+# add c:\unison to system variable
+
+
+MAC:
+
+
+
+UBUNTU:
+apt install ocaml
+apt install make
+mkdir /etc/unison
+wget <source>.tar.gz
+cd /etc/unison/unison-<version>/src
+make UISTYLE=text
+./unison <- to test
+./unison-fsmonitor <- to test
+mv unison unison-fsmonitor /usr/local/bin
+
+
+
+Command
+unison path1 path2 -repeat watch
+unison D:/Web ssh://vagrant@192.168.10.10//var/web -auto -batch -repeat watch
+
+
+Make a profile
+c:\users\.unison\default.prf -> profile.prf
+
+sudo su -c 'echo 524288 > /proc/sys/fs/inotify/max_user_watches'
+

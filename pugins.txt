@@ -1,5 +1,15 @@
-vagrant-bindfs
-vagrant-share
 vagrant-winnfsd
+vagrant-share
 
-if using windows, run git-bash.exe winnfsd.exe as administrator
+vagrant-bindfs
+
+vagrant-sshfs
+
+
+
+
+if using windows,run git-bash.exe winnfsd.exe as administrator
+c:\users\<user>\.vagrant.d\gems\version\gems\vagrant-winnfsd\bin
+
+
+https://github.com/billziss-gh/sshfs-win

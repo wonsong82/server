@@ -1,0 +1,18 @@
+add user and enable ssh from your vagrant server
+ adduser <user>
+ usermod -a -G www-data <user>
+ usermod -a -G sudo <user>
+ vim /etc/ssh/sshd_config
+ #PasswordAuthentication yes
+ sudo service ssh restart
+
+
+
+https://github.com/billziss-gh/sshfs-win
+
+download WinFsp
+download SSHFS-Win
+
+
+This PC > Map Network Drive
+\\sshfs\<user>@127.0.0.1!2222\..\..\var\www

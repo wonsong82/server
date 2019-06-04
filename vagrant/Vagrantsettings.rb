@@ -27,6 +27,7 @@ class VagrantSettings
 	config.vm.synced_folder '.', '/vagrant', disabled: true
 	config.vm.synced_folder './scripts', '/scripts'
 	
+	
 	settings["folders"].each do |folder|
 	  config.vm.synced_folder folder["from"], folder["to"],		
 		:nfs => true
@@ -51,6 +52,7 @@ class VagrantSettings
       v.customize ["modifyvm", :id, "--natdnsproxy1", "on"]	  
 	  v.customize ["modifyvm", :id, "--cableconnected1", "on"]
 	end
-	
+			
+		
   end
 end
