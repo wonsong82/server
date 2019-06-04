@@ -1,0 +1,8 @@
+#! /bin/bash
+print_title "Composer: Configuration"
+echo 'export PATH="$PATH:$HOME/.composer/vendor/bin"' >> ~/.bashrc
+#echo 'export PATH="/usr/local/bin"' >> ~/.bashrc
+#source ~/.bashrc
+
+sudo cp -f $root/apps/$version/composer/config.json ~/.composer/
+print_end "finished"

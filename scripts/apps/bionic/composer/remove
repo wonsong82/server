@@ -1,0 +1,5 @@
+#! /bin/bash
+print_title "Composer: Uninstall"
+sudo rm -rf /usr/local/bin/composer
+
+print_end "composer removed.."

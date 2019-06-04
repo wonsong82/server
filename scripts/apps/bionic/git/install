@@ -1,0 +1,19 @@
+#! /bin/bash
+print_title "Git: Installation"
+
+print_start "getting git repositories.."
+print_start "getting git lfs repository.."
+sudo curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
+sudo apt update -y -qq
+
+print_start "installing.."
+sudo apt install git -y
+sudo apt install git-lfs -y
+sudo git lfs install
+git lfs install
+
+print_start "cleaning up.."
+sudo apt autoremove -y -qq
+print_end "install finished.."
+
+

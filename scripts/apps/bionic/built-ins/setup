@@ -1,0 +1,3 @@
+#! /bin/bash
+print_title "Built-in Packages: Configuration"
+print_end "nothing to setup.."

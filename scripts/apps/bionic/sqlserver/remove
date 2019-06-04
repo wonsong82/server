@@ -1,0 +1,9 @@
+#! /bin/bash
+print_title "Microsoft SQL Server: Uninstall"
+sudo apt purge mssql-server -y
+sudo apt purge mssql-tools -y
+sudo apt purge unixodbc -y
+sudo apt purge freetds-common -y
+sudo apt purge freetds-bin
+sudo apt autoremove -y -qq
+print_end "nothing to setup.."

@@ -1,10 +1,7 @@
 vagrant-winnfsd
 vagrant-share
-
 vagrant-bindfs
-
 vagrant-sshfs
-
 
 
 

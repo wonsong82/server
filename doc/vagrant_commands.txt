@@ -1,0 +1,6 @@
+vagrant up
+vagrant halt
+
+vagrant plugin install
+
+vagrant ssh-config

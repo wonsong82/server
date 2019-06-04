@@ -18,5 +18,5 @@ databases=(
 #   'database_user2_name,database_user2_password'
 # )
 db_users=(
-  'threeon,30nPass!'
+  'admin,777'
 )

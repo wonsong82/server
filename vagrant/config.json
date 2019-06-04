@@ -1,13 +1,9 @@
 {  
-  "name":"Ubuntu_16.04",
-  "box":"bento/ubuntu-16.04",
+  "name":"Ubuntu_18.04",
+  "box":"bento/ubuntu-18.04",
   "cpus":8,
   "memory":8192,  
   "ip":"192.168.10.10",
-  "folders":[
-    {"from":"../", "to":"/works/"}
-  ],
-  "binds":[
-      {"from":"/works/", "to":"/projects/", "user":"vagrant", "group":"www-data", "permissions":"u=rwx:g=rwx:o=rwx"}	  
-  ]
+  "folders":[],
+  "binds":[]
 }

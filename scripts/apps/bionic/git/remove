@@ -1,0 +1,7 @@
+#! /bin/bash
+print_title "Git: Uninstall"
+sudo apt purge git -y
+sudo apt purge git-lfs -y
+sudo apt autoremove -y -qq
+
+print_end "git removed.."

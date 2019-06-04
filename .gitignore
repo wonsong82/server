@@ -3,4 +3,5 @@
 scripts/config/links
 scripts/config/cron/backups.json
 scripts/config/lamp/conf
-scripts/config/lamp/sites/*.conf
+scripts/config/lamp/sites/*
+!scripts/config/lamp/sites/sample

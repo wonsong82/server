@@ -1,5 +1,5 @@
 #! /bin/bash
-version='xenial'
+version='bionic'
 
 # available packages by folder
 packages=(

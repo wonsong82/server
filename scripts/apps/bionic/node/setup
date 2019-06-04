@@ -1,0 +1,3 @@
+#! /bin/bash
+print_title "Node6.x & npm: Configuration"
+print_end "nothing to setup.."

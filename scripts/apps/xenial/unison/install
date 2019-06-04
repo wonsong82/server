@@ -1,0 +1,34 @@
+#! /bin/bash
+
+unison_version=2.51.2
+
+
+
+print_title "Unison $unison_version: Installation"
+
+
+print_start "getting repositories.."
+sudo apt update -y -qq
+
+
+print_start "installing.."
+
+sudo apt install ocaml -y -qq
+sudo apt install make -y -qq
+
+sudo mkdir /etc/unison
+cd /etc/unison
+sudo wget https://github.com/bcpierce00/unison/archive/v$unison_version.tar.gz
+sudo tar -xzf v$unison_version.tar.gz
+cd /etc/unison/unison-$unison_version/src
+sudo make UISTYLE=text
+sudo mv unison unison-fsmonitor /usr/local/bin
+sudo su -c 'echo 524288 > /proc/sys/fs/inotify/max_user_watches'
+
+print_start "cleaning up.."
+sudo apt autoremove -y -qq
+print_end "install finished.."
+
+
+
+
