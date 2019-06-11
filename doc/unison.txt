@@ -37,3 +37,35 @@ c:\users\.unison\default.prf -> profile.prf
 
 sudo su -c 'echo 524288 > /proc/sys/fs/inotify/max_user_watches'
 
+
+
+
+
+
+
+
+SSH vagrant with vagrant private key
+
+Goto your server folder
+cd {server_dir}
+
+Find key directory
+vagrant ssh-config
+
+ssh -i {key_path} vagrant@192.168.10.10
+
+
+
+
+
+
+SSH vagrant with public key
+
+First generate your own key if you haven't done so, this will generate private/public key with default name id_rsa, [no-password]
+ssh-keygen
+
+Copy the public key to the vagrant server, for vagrant password type 'vagrant'
+ssh-copy-id vagrant@192.168.10.10
+
+
+

@@ -1,0 +1,29 @@
+# Roots of the synchronization
+root = D:/Web/path1
+root = ssh://vagrant@192.168.10.10//var/www/path2
+
+# Paths to synchronize
+#path = current
+#path = common
+#path = .netscape/bookmarks.html
+
+# Some regexps specifying names and paths to ignore
+ignore = Name */@eaDir
+ignore = Name */_notes
+ignore = Name .DS_Store
+ignore = Name SyncToy_*.dat
+ignore = Path */Archives
+ignore = Path */tools
+ignore = Name *.sublime*
+ignore = Path */.idea
+
+auto=true
+batch=true
+confirmbigdel=true
+fastcheck=true
+group=true
+owner=true
+prefer=newer
+silent=false
+times=true
+repeat=watch

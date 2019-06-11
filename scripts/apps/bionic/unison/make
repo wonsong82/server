@@ -1,0 +1,33 @@
+#! /bin/bash
+
+if [ $command == "config" ]; then
+
+    _name=$2
+    _path1=$3
+    _path2=$4
+
+    if [ -n "$_name" ]; then
+        cp $root/apps/$version/unison/src/sample.prf ~/.unison/$_name.prf
+    fi
+
+
+
+    if [ -n "$_path1" ]; then
+        search="D:/Web/path1"
+        replace="$_path1"
+        sed -i "s~$search~$replace~g" ~/.unison/$_name.prf
+    fi
+
+
+    if [ -n "$_path2" ]; then
+        search="ssh://vagrant@192.168.10.10//var/www/path2"
+        replace="$_path2"
+        sed -i "s~$search~$replace~g" ~/.unison/$_name.prf
+    fi
+
+
+
+
+    print_end "Unison config '$_name.prf' generated. Now you can run 'unison $_name' to start syncing."
+
+fi

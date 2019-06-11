@@ -1,0 +1,6 @@
+#! /bin/bash
+print_title "Laravel Installer: Uninstall"
+
+composer global laravel/installer
+
+print_end "Laravel Installer removed.."

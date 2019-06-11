@@ -17,8 +17,9 @@ sudo apt install ocaml -y -qq
 sudo apt install make -y -qq
 
 sudo mkdir /etc/unison
+sudo cp v$unison_version.tar.gz /etc/unison
 cd /etc/unison
-sudo wget https://github.com/bcpierce00/unison/archive/v$unison_version.tar.gz
+#sudo wget https://github.com/bcpierce00/unison/archive/v$unison_version.tar.gz
 sudo tar -xzf v$unison_version.tar.gz
 cd /etc/unison/unison-$unison_version/src
 sudo make UISTYLE=text

@@ -1,0 +1,9 @@
+#! /bin/bash
+print_title "Laravel Installer: Installation"
+
+print_start "installing.."
+composer global require laravel/installer
+
+print_end "install finished.."
+
+

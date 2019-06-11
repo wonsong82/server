@@ -1,0 +1,17 @@
+#! /bin/bash
+. ".script.sh"
+
+if [ -z $1 ]; then
+    print_error "Please provide commands"
+fi
+
+
+app="$(cut -d':' -f1 <<<"$1")"
+command="$(cut -d':' -f2 <<<"$1")"
+
+. "apps/$version/$app/make"
+
+
+
+
+

@@ -1,0 +1,3 @@
+#! /bin/bash
+print_title "Laravel Installer: Configuration"
+print_end "nothing to setup.."

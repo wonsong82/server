@@ -4,7 +4,16 @@
 print_title "Composer: Installation"
 
 print_start "installing.."
-sudo curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer
+
+# download and install composer
+curl -sS https://getcomposer.org/installer | php -- --filename=composer
+sudo mv composer /usr/local/bin -f
+sudo chown root:root /usr/local/bin/composer
+sudo chmod 755 /usr/local/bin/composer
+
+# add composer vendor bin to path and apply it
+echo 'export PATH="$PATH:$HOME/.config/composer/vendor/bin"' >> ~/.bashrc
+source ~/.bashrc
 
 print_end "install finished.."
 

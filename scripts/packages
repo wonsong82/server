@@ -8,4 +8,5 @@ packages=(
   'lamp'
   'node'
   'composer'
+  'laravel'
 )

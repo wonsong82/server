@@ -9,6 +9,8 @@ sudo apt update -y
 print_start "upgrading installed packages.."
 sudo apt-get upgrade -y
 
+sudo apt install unzip
+
 print_start "cleaning up.."
 sudo apt-get --purge autoremove -y -qq
 print_end "install finished.."

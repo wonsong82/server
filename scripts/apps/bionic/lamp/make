@@ -1,0 +1,33 @@
+#! /bin/bash
+
+if [ $command == "site" ]; then
+
+    site=$2
+    domain=$3
+    docroot=$4
+
+    if [ -n "$site" ]; then
+        cp $root/config/lamp/sites/sample/sample.conf $root/config/lamp/sites/$site.conf
+    fi
+
+    if [ -n "$domain" ]; then
+        search="domain.com"
+        replace="$domain"
+        sed -i "s/$search/$replace/g" $root/config/lamp/sites/$site.conf
+    fi
+
+
+    if [ -n "$docroot" ]; then
+        search="/var/www/namespace/name/www"
+        replace="$docroot"
+        sed -i "s~$search~$replace~g" $root/config/lamp/sites/$site.conf
+    fi
+
+
+
+
+    print_end "Apache site config '$site.conf' generated."
+
+fi
+
+
