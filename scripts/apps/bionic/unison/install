@@ -17,14 +17,15 @@ sudo apt install ocaml -y -qq
 sudo apt install make -y -qq
 
 sudo mkdir /etc/unison
-sudo cp v$unison_version.tar.gz /etc/unison
+sudo cp $root/apps/$version/unison/src/v$unison_version.tar.gz /etc/unison
 cd /etc/unison
 #sudo wget https://github.com/bcpierce00/unison/archive/v$unison_version.tar.gz
 sudo tar -xzf v$unison_version.tar.gz
 cd /etc/unison/unison-$unison_version/src
 sudo make UISTYLE=text
 sudo mv unison unison-fsmonitor /usr/local/bin
-sudo su -c 'echo 524288 > /proc/sys/fs/inotify/max_user_watches'
+#sudo su -c 'echo 524288 > /proc/sys/fs/inotify/max_user_watches'
+echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
 
 print_start "cleaning up.."
 sudo apt autoremove -y -qq

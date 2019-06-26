@@ -21,7 +21,7 @@ sudo su
 
 // CREATE VOLUME
 lsblk (to find mountable volumes)
-format: mkfs -t ext4 dev/disk_name
+format: mkfs -t ext4 /dev/disk_name
 
 // MOUNT
 mkdir /data

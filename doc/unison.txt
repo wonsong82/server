@@ -11,6 +11,26 @@ WINDOWS:
 
 
 MAC:
+brew install opam
+Opam init --comp 4.04.0
+Opam switch create 4.07.0
+make UISTYLE=text
+
+Or
+
+brew install unison
+
+Or
+
+Install unison.app and add command line
+
+
+Sudo easy_install pip
+pip install --user macfsevents
+
+https://github.com/autozimu/unison-fsmonitor
+Brew install autozimu/formulas/unison-fsmonitor
+
 
 
 
