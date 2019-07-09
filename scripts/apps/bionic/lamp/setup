@@ -51,6 +51,10 @@ sudo cp -f $root/apps/$version/lamp/inc/php/5.6/php.ini /etc/php/5.6/apache2
 sudo cp -f $root/apps/$version/lamp/inc/php/5.6/php.ini /etc/php/5.6/cgi
 sudo cp -f $root/apps/$version/lamp/inc/php/5.6/php.ini /etc/php/5.6/cli
 
+sudo cp -f $root/apps/$version/lamp/inc/php/5.6/xdebug.ini /etc/php/5.6/mods-available
+sudo cp -f $root/apps/$version/lamp/inc/php/7.0/xdebug.ini /etc/php/7.0/mods-available
+sudo cp -f $root/apps/$version/lamp/inc/php/7.2/xdebug.ini /etc/php/7.2/mods-available
+sudo cp -f $root/apps/$version/lamp/inc/php/7.3/xdebug.ini /etc/php/7.3/mods-available
 
 print_start "copying mysql configs.."
 sudo cp -f $root/apps/$version/lamp/inc/mysql/my.cnf /etc/mysql
