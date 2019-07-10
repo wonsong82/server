@@ -45,12 +45,41 @@ class VagrantSettings
 	
 	# VirtualBox Settings
 	config.vm.provider "virtualbox" do |v|
-	  v.name = settings["name"]
-	  v.cpus = settings["cpus"]
-	  v.memory = settings["memory"]
-	  v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
-      v.customize ["modifyvm", :id, "--natdnsproxy1", "on"]	  
-	  v.customize ["modifyvm", :id, "--cableconnected1", "on"]
+        host = RbConfig::CONFIG['host_os']
+        cpus = settings["cpus"]
+        mem  = settings["memory"]
+        
+        if cpus == "auto"
+            # give vm 1/2 cpu cores
+            if host =~ /darwin/
+                cpus = `sysctl -n hw.ncpu`.to_i / 2
+            elsif host =~ /linux/
+                cpus = `nproc`.to_i / 2
+            else
+                cpus = `wmic cpu get NumberOfCores`.split("\n")[2].to_i / 2
+            end
+        end
+        
+        if mem == "auto"
+            # give vm 1/4 system memory
+            if host =~ /darwin/
+                # sysctl returns bytes and we need to conver to mb
+                mem = `sysctl -n hw.memsize`.to_i / 1024 / 1024 / 4
+            elsif host =~ /linux/
+                #meminfo shows KB and we need to convert to MB
+                mem = `grep 'MemTOtal' /proc/meminfo | sed -e 's/MemTotal://' -e 's/ kB//'`.to_i / 1024 / 4
+            else
+                mem = `wmic OS get TotalVisibleMemorySize`.split("\n")[2].to_i / 1024 / 4
+            end
+
+        end
+        
+        v.name = settings["name"]
+        v.customize ["modifyvm", :id, "--cpus", cpus]
+        v.customize ["modifyvm", :id, "--memory", mem]
+        v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
+        v.customize ["modifyvm", :id, "--natdnsproxy1", "on"]
+        v.customize ["modifyvm", :id, "--cableconnected1", "on"]
 	end
 			
 		

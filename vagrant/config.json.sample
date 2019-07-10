@@ -1,13 +1,13 @@
 {  
   "name":"Ubuntu_16.04_Bento",
   "box":"bento/ubuntu-16.04",
-  "cpus":8,
-  "memory":8192,  
+  "cpus":"auto",
+  "memory":"auto",
   "ip":"192.168.10.10",
   "folders":[
-    {"from":"../", "to":"/works/"}
+    {"from":"../", "to":"/shared/"}
   ],
   "binds":[
-      {"from":"/works/", "to":"/projects/", "user":"vagrant", "group":"www-data", "permissions":"u=rwx:g=rwx:o=rwx"}
+      {"from":"/shared/", "to":"/projects/", "user":"vagrant", "group":"www-data", "permissions":"u=rwx:g=rwx:o=rwx"}
   ]
 }

@@ -1,9 +1,12 @@
 {  
   "name":"Ubuntu_18.04",
   "box":"bento/ubuntu-18.04",
-  "cpus":12,
-  "memory":8192,  
+  "cpus":"auto",
+  "memory":"auto",
   "ip":"192.168.10.10",
-  "folders":[],
-  "binds":[]
+  "folders":[
+      {"from":"../", "to":"/shared/"}
+  ],
+  "binds":[
+  ]
 }
