@@ -5,7 +5,6 @@
   "memory":"auto",
   "ip":"192.168.10.10",
   "folders":[
-      {"from":"../", "to":"/shared/"}
   ],
   "binds":[
   ]
