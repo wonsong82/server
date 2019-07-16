@@ -9,5 +9,6 @@ packages=(
   'node'
   'composer'
   'laravel'
-  'unison'
+  'redis'
+  'unison'  
 )

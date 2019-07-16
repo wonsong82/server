@@ -1,4 +1,5 @@
 #! /bin/bash
 print_title "Composer: Configuration"
 sudo cp -f $root/apps/$version/composer/config.json ~/.config/composer/
+sudo chown $USER:$USER ~/.config/composer/config.json
 print_end "finished"
