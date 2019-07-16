@@ -4,5 +4,6 @@ scripts/config/links
 scripts/config/cron/backups.json
 scripts/config/lamp/conf
 scripts/config/lamp/sites/*
-Scripts/config/unison/*
+scripts/config/unison/*
 !scripts/config/lamp/sites/sample
+scripts/data

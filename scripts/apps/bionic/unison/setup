@@ -3,3 +3,13 @@ print_title "Unison: Configuration"
 print_end "Go to https://github.com/bcpierce00/unison/releases and download unison for your host platform. unzip and save them to unison folder and set the folder in the path variable."
 print_title "Usages"
 print_end "unison path1 path2 -auto -batch -repeat watch or unison profile"
+
+
+# WINDOWS HOST
+# copy src/unison-windows-2.51.2-text/* to c:\unison and add c:\unison to system variable
+
+# MAC HOST
+# install src/Unison.app and add command line.
+# sudo easy_install pip
+# pip install --user macfsevents
+# brew install autozimu/formulas/unison-fsmonitor

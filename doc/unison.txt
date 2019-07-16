@@ -4,23 +4,23 @@ download link: https://github.com/bcpierce00/unison/releases
 
 
 WINDOWS:
-# download <version> unison-widows.zip
-# unzip
-# move them to c:\unison
-# add c:\unison to system variable
+download <version> unison-widows.zip
+unzip
+move them to c:\unison
+add c:\unison to system variable
 
 
 MAC:
-brew install opam
-Opam init --comp 4.04.0
-Opam switch create 4.07.0
-make UISTYLE=text
+# brew install opam
+# Opam init --comp 4.04.0
+# Opam switch create 4.07.0
+# make UISTYLE=text
 
-Or
+# Or
 
-brew install unison
+# brew install unison
 
-Or
+# Or
 
 Install unison.app and add command line
 
