@@ -1,6 +1,6 @@
 #! /bin/bash
 cp vagrant/config.json.sample vagrant/config.json
-cp scripts/packages.sample scripts/packages
+#cp scripts/packages.sample scripts/packages
 
 
 echo "-----------------------------------------------------"

@@ -4,8 +4,6 @@
   "cpus":"auto",
   "memory":"auto",
   "ip":"192.168.10.10",
-  "folders":[
-  ],
-  "binds":[
-  ]
+  "folders":[],
+  "binds":[]
 }
