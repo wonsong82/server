@@ -56,7 +56,7 @@ class VagrantSettings
             elsif host =~ /linux/
                 cpus = `nproc`.to_i / 2
             else
-                cpus = `wmic cpu get NumberOfCores`.split("\n")[2].to_i / 2
+                cpus = `wmic cpu get NumberOfCores`.split("\n")[2].to_i / 1
             end
         end
         
