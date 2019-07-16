@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+# Define provider such as mailtraip, mailgun, sendgrid
+provider='mailtrap'
+
+# Additional parameters
+auth_user='363c0c1b3a7d07'
+auth_pass='f032700175deae'

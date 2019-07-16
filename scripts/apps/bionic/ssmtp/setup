@@ -1,0 +1,26 @@
+#! /bin/bash
+. "$root/config/ssmtp/conf"
+print_title "SSMTP: Configuration"
+
+
+sudo cp -f ${root}/apps/${version}/ssmtp/inc/${provider}.conf $root/config/ssmtp/ssmtp.conf
+
+
+
+if [ $provider == "mailtrap" ]; then
+    search="ssmtp_auth_user"
+    replace="$auth_user"
+    sed -i "s~$search~$replace~g" $root/config/ssmtp/ssmtp.conf
+
+    search="ssmtp_auth_pass"
+    replace="$auth_pass"
+    sed -i "s~$search~$replace~g" $root/config/ssmtp/ssmtp.conf
+fi
+
+
+sudo mv -f ${root}/config/ssmtp/ssmtp.conf /etc/ssmtp
+#sudo chown root:mail /etc/ssmtp/ssmtp.conf
+#sudo chmod 640 /etc/ssmtp/ssmtp.conf
+
+
+print_end "finished"

@@ -1,0 +1,17 @@
+#! /bin/bash
+
+print_title "SSMTP: Installation"
+
+print_start "getting repositories.."
+sudo apt update -y -qq
+
+print_start "installing.."
+sudo apt install ssmtp -y -qq
+
+print_start "cleaning up.."
+sudo apt autoremove -y -qq
+print_end "install finished.."
+
+
+
+

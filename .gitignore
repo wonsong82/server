@@ -6,4 +6,6 @@ scripts/config/lamp/conf
 scripts/config/lamp/sites/*
 scripts/config/unison/*
 !scripts/config/lamp/sites/sample
-scripts/data
+scripts/data/*
+!scripts/data/.gitignore
+scripts/config/ssmtp/conf

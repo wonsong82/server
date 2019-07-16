@@ -1,0 +1,7 @@
+#! /bin/bash
+print_title "SSMTP: Uninstall"
+sudo apt purge git -y
+sudo apt purge ssmtp -y
+sudo apt autoremove -y -qq
+
+print_end "removed.."
