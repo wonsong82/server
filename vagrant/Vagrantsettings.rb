@@ -10,6 +10,11 @@ class VagrantSettings
 	# Private Network IP
 	config.vm.network "private_network", ip: settings["ip"]
 	
+	
+	config.ssh.username = "vagrant"  
+	config.ssh.password = "vagrant"          
+	config.ssh.insert_key = false  
+	
 	# Port Forwarding
 	ports = {
 	  80 => 8000,

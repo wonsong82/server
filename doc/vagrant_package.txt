@@ -1,0 +1,5 @@
+Before packaging, add this key to .ssh/authorized_keys
+https://raw.githubusercontent.com/mitchellh/vagrant/master/keys/vagrant.pub
+
+vagrant package --base "Name_of_Vbox" --output "out.box"
+vagrant box add "Name_of_New_Box" [path]

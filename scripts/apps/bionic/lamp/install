@@ -53,6 +53,13 @@ print_start "cleaning up.."
 sudo apt autoremove -y -qq
 print_end "install finished.."
 
+
+
+# Xdebug
+cp -f $root/apps/$version/lamp/inc/scripts/* ~/bin 
+chmod +x ~/bin/*
+
+
 print_start "Make sure edit all conf files including sites configs"
 
 

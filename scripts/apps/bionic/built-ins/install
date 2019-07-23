@@ -10,6 +10,9 @@ print_start "upgrading installed packages.."
 sudo apt-get upgrade -y
 
 sudo apt install unzip
+cd ~
+mkdir bin
+echo 'export PATH="$PATH:$HOME/bin"' >> ~/.bashrc
 
 print_start "cleaning up.."
 sudo apt-get --purge autoremove -y -qq
